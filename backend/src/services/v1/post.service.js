@@ -2,24 +2,34 @@ const Post = require('../../models/post.model');
 const AppError = require('../../utils/AppError');
 
 const getAllPosts = async (limit, offset) => {
-    const { count, rows } = await Post.findAndCountAll({
-        include: { model: require('../models/user.model'), as: 'user', attributes: ['name'] },
-        limit,
-        offset,
-    });
 
-    return { total: count, posts: rows };
+    try {
+        const { count, rows } = await Post.findAndCountAll({
+            include: { model: require('../models/user.model'), as: 'user', attributes: ['name'] },
+            limit,
+            offset,
+        });
+    
+        return { total: count, posts: rows };
+    } catch (error) {
+        throw new AppError('Failed to fetch posts', 500);
+    }
+
 };
 
 const deletePost = async (postId) => {
-    const post = await Post.findByPk(postId);
+    try {
+        const post = await Post.findByPk(postId);
 
-    if (!post) {
-        throw new AppError('Post not found', 404);
+        if (!post) {
+            throw new AppError('Post not found', 404);
+        }
+
+        await post.destroy();
+        return { message: 'Post deleted successfully' };
+    } catch (err) {
+        throw new AppError(err.message || 'Failed to delete post', 500);
     }
-
-    await post.destroy();
-    return { message: 'Post deleted successfully' };
 };
 
 module.exports = { getAllPosts, deletePost };
