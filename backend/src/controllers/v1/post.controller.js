@@ -1,4 +1,4 @@
-const { deletePost } = require('../../services/v1/post.service');
+const { deletePost, getAllPosts } = require('../../services/v1/post.service');
 const ApiResponse = require('../../utils/ApiResponse');
 
 

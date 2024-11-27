@@ -5,13 +5,14 @@ const getAllPosts = async (limit, offset) => {
 
     try {
         const { count, rows } = await Post.findAndCountAll({
-            include: { model: require('../models/user.model'), as: 'user', attributes: ['name'] },
+            include: { model: require('../../models/user.model'), as: 'user', attributes: ['name'] },
             limit,
             offset,
         });
     
         return { total: count, posts: rows };
     } catch (error) {
+        console.log(error.message);
         throw new AppError('Failed to fetch posts', 500);
     }
 

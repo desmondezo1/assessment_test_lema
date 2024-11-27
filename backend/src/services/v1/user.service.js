@@ -1,12 +1,16 @@
 const Post = require('../../models/post.model');
-const User = require('../../models/user.model');
+const { User, Address } = require('../../models');
+
 const AppError = require('../../utils/AppError');
 
 const getUsers = async (limit, offset) => {
   try {
 
     const { count, rows } = await User.findAndCountAll({
-      include: [{ model: Address }],
+      include: [{
+        model: Address,
+        as: 'address',
+       }],
       limit,
       offset,
   });
@@ -14,7 +18,7 @@ const getUsers = async (limit, offset) => {
   return { total: count, users: rows };
 
   } catch (error) {
-
+    console.log(error.message)
     throw new AppError('Failed to fetch users', 500);
   }
 
