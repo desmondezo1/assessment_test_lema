@@ -1,6 +1,6 @@
 const express = require('express');
-const { listUsers, listUserPosts } = require('../controllers/user.controller');
-const paginateResults = require('../middlewares/paginateResults');
+const { listUsers, listUserPosts } = require('../../controllers/v1/user.controller');
+const paginateResults = require('../../middlewares/paginateResults');
 
 const router = express.Router();
 
