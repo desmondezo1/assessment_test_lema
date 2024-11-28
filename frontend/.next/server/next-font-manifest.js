@@ -1,1 +1,0 @@
-self.__NEXT_FONT_MANIFEST="{\"pages\":{},\"app\":{\"/Users/sph/Documents/Desmond_work_projects/lema-test/frontend/src/app/layout\":[\"static/media/463dafcda517f24f-s.p.woff\",\"static/media/cc27cf3ff100ea21-s.p.ttf\"]},\"appUsingSizeAdjust\":true,\"pagesUsingSizeAdjust\":false}"
