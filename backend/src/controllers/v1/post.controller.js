@@ -1,5 +1,5 @@
 const { deletePost, getAllPosts } = require('../../services/v1/post.service');
-const ApiResponse = require('../../utils/ApiResponse');
+const ApiResponse = require('../../utils/apiResponse');
 
 
 const listAllPosts = async (req, res, next) => {

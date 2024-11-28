@@ -1,5 +1,5 @@
 const { getUsers, getUserPosts } = require('../../services/v1/user.service');
-const ApiResponse = require('../../utils/ApiResponse');
+const ApiResponse = require('../../utils/apiResponse');
 
 const listUsers = async (req, res, next) => {
     try {

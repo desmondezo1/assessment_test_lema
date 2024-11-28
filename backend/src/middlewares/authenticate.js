@@ -1,5 +1,5 @@
 const jwt = require('jsonwebtoken');
-const ApiResponse = require('../utils/ApiResponse');
+const ApiResponse = require('../utils/apiResponse');
 
 const authenticate = (req, res, next) => {
     try {
