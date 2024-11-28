@@ -2,8 +2,8 @@ import Axios from "axios";
 
 export const API_BASE_URL: string =
   process.env.BACKEND_API || process.env.NODE_ENV === "development"
-    ? "http://localhost:5505/api/v1"
-    : "https://gidilounge-backend.vercel.app/api";
+    ? "http://localhost:3001/api/v1"
+    : "http://localhost:3001/api/v1";
 
 const axios = Axios.create({
   baseURL: API_BASE_URL,
